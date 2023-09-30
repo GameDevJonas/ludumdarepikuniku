@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cglq2rvl32y4d"]
+
+[ext_resource type="PackedScene" uid="uid://cogy0i2rpxsxr" path="res://Scenes/Entities/GroundPiece.tscn" id="1_0c6v5"]
+[ext_resource type="PackedScene" uid="uid://cpn5n4d4t2v7y" path="res://Scenes/GameCores.tscn" id="2_lbh8s"]
+
+[node name="StartinLevel" type="Node2D"]
+
+[node name="LevelArea" type="Node" parent="."]
+
+[node name="GroundPiece" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(0, 24)
+
+[node name="GroundPiece2" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(21, 24)
+
+[node name="GroundPiece3" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(-22, 24)
+
+[node name="GameCores" parent="." instance=ExtResource("2_lbh8s")]

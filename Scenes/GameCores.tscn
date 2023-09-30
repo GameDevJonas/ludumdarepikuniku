@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpn5n4d4t2v7y"]
+
+[ext_resource type="PackedScene" uid="uid://bxh8nm8333yig" path="res://Scenes/UI/UI_Jumping.tscn" id="1_qr7cv"]
+[ext_resource type="PackedScene" uid="uid://d3c111qlkqj2n" path="res://Scenes/Player/Player.tscn" id="2_g2mwf"]
+[ext_resource type="Script" path="res://Scenes/UI/Scripts/JumpingUI.gd" id="2_nb7r8"]
+
+[node name="GameCores" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="JumpingUI" parent="Camera2D" instance=ExtResource("1_qr7cv")]
+offset_left = -289.0
+offset_top = -162.0
+offset_right = -289.0
+offset_bottom = -162.0
+script = ExtResource("2_nb7r8")
+
+[node name="Player" parent="." instance=ExtResource("2_g2mwf")]
+position = Vector2(0, -40)
+
+[connection signal="on_jumps_updated" from="Player" to="Camera2D/JumpingUI" method="_on_player_on_jumps_updated"]
