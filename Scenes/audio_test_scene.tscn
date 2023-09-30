@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://3subllh0ukjb"]
+
+[ext_resource type="EventAsset" uid="uid://cc03h2euwp880" path="res://addons/FMOD/editor/resources/events/{9602bffc-d20f-4fa5-a91d-61e4b6d1ca8c}.tres" id="1_j7ek2"]
+[ext_resource type="BankAsset" uid="uid://dyb6j0pf4xoq3" path="res://addons/FMOD/editor/resources/banks/{387d56c1-0b62-4396-a031-a5d989f024bd}.tres" id="2_7f3kr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wttvh"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StudioEventEmitter2D" type="StudioEventEmitter2D" parent="Node2D"]
+play_event = 1
+event = ExtResource("1_j7ek2")
+
+[node name="StudioBankLoader" type="StudioBankLoader" parent="Node2D"]
+load_on = 1
+num_banks = 1
+bank_0 = ExtResource("2_7f3kr")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/RigidBody2D"]
+shape = SubResource("CircleShape2D_wttvh")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D/RigidBody2D"]
+
+[node name="StudioListener2D" type="StudioListener2D" parent="Node2D/RigidBody2D" node_paths=PackedStringArray("attenuation_object", "rigidbody")]
+attenuation_object = NodePath("../Camera2D")
+rigidbody = NodePath("..")
