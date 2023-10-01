@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3c111qlkqj2n"]
+[gd_scene load_steps=28 format=3 uid="uid://d3c111qlkqj2n"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Scripts/Player.gd" id="1_a36bl"]
 [ext_resource type="Texture2D" uid="uid://ot7h4ksad7qm" path="res://Textures/Player/limitedspace_dude3.png" id="3_0kd28"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://ct03djgbsjrfg" path="res://Textures/Player/limitedspace_dude_crouch.png" id="6_4jeov"]
 [ext_resource type="Texture2D" uid="uid://bbavejwsafget" path="res://Textures/Player/limitedspace_dude_walk1.png" id="6_5e1px"]
 [ext_resource type="Texture2D" uid="uid://xcclv03qeoy5" path="res://Textures/Player/limitedspace_dude_walk2.png" id="7_audkr"]
+[ext_resource type="EventAsset" uid="uid://ihmrt3i6voft" path="res://addons/FMOD/editor/resources/events/{e1c8ba8d-7a33-4185-bffb-4875be40f9e5}.tres" id="9_67gky"]
+[ext_resource type="Script" path="res://Scenes/Player/PlayerAudio.gd" id="9_eodgm"]
+[ext_resource type="EventAsset" uid="uid://csxp86inhd7hc" path="res://addons/FMOD/editor/resources/events/{51835cb1-00dd-4fe8-a201-2636ae5a3dfd}.tres" id="10_70vtn"]
+[ext_resource type="EventAsset" uid="uid://cqi4uavhletus" path="res://addons/FMOD/editor/resources/events/{aaa480ac-b298-45f6-835a-2309659c1ab8}.tres" id="11_t6w3h"]
+[ext_resource type="EventAsset" uid="uid://cr7a1fc400oug" path="res://addons/FMOD/editor/resources/events/{0047cdcf-44af-4aef-817a-95de98d941cb}.tres" id="12_q1g23"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6j1ce"]
 radius = 113.0
@@ -103,13 +108,45 @@ tracks/1/keys = {
 "values": [-0.174533, 0.0, 0.174533, -0.174533]
 }
 
+[sub_resource type="Animation" id="Animation_eqo2l"]
+resource_name = "Player_Fail_Jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_4jeov"), ExtResource("6_4jeov"), ExtResource("3_0kd28")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector2(0, 160), Vector2(0, 160), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xholu"]
 _data = {
+"Player_Fail_Jump": SubResource("Animation_eqo2l"),
 "Player_Falling": SubResource("Animation_mxstw"),
 "Player_Idle": SubResource("Animation_5flxe"),
 "Player_Jump": SubResource("Animation_vrltl"),
 "Player_Walk": SubResource("Animation_kqdtl")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ea86"]
+animation = &"Player_Fail_Jump"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eb7bm"]
 animation = &"Player_Falling"
@@ -128,6 +165,8 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vdjrc"]
 states/End/position = Vector2(950, 100)
+states/Player_Fail_Jump/node = SubResource("AnimationNodeAnimation_5ea86")
+states/Player_Fail_Jump/position = Vector2(492, 164)
 states/Player_Falling/node = SubResource("AnimationNodeAnimation_eb7bm")
 states/Player_Falling/position = Vector2(759, 100)
 states/Player_Idle/node = SubResource("AnimationNodeAnimation_lno6b")
@@ -135,8 +174,7 @@ states/Player_Idle/position = Vector2(396, 100)
 states/Player_Jump/node = SubResource("AnimationNodeAnimation_6ksi7")
 states/Player_Jump/position = Vector2(605, 100)
 states/Player_Walk/node = SubResource("AnimationNodeAnimation_so3bh")
-states/Player_Walk/position = Vector2(396, 164)
-states/Start/position = Vector2(197, 100)
+states/Player_Walk/position = Vector2(317, 164)
 transitions = ["Start", "Player_Idle", SubResource("AnimationNodeStateMachineTransition_kbsp1")]
 graph_offset = Vector2(-9, 35)
 
@@ -145,19 +183,23 @@ script = ExtResource("1_a36bl")
 speed = 600.0
 jump_velocity = -800.0
 
+[node name="StudioListener2D" type="StudioListener2D" parent="." node_paths=PackedStringArray("attenuation_object", "rigidbody")]
+attenuation_object = NodePath("..")
+rigidbody = NodePath("..")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -218)
 shape = SubResource("CapsuleShape2D_6j1ce")
 
 [node name="JumpingManager" type="Node" parent="."]
 script = ExtResource("3_5kn0h")
-starting_jumps = 10
+starting_jumps = 1
 current_jumps = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -219)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_ugq2d")
+texture = ExtResource("3_0kd28")
 script = ExtResource("4_o5r75")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
@@ -171,5 +213,17 @@ tree_root = SubResource("AnimationNodeStateMachine_vdjrc")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 
+[node name="Audio Events" type="Node2D" parent="."]
+script = ExtResource("9_eodgm")
+footstep_event = ExtResource("9_67gky")
+jump_event = ExtResource("10_70vtn")
+landed_event = ExtResource("11_t6w3h")
+fail_jump_event = ExtResource("12_q1g23")
+
+[connection signal="on_fail_jump" from="." to="Sprite2D" method="_on_player_on_fail_jump"]
+[connection signal="on_fail_jump" from="." to="Audio Events" method="_on_player_on_fail_jump"]
+[connection signal="on_jump" from="." to="Audio Events" method="_on_player_on_jump"]
+[connection signal="on_landed" from="." to="Audio Events" method="_on_player_on_landed"]
 [connection signal="on_velocity" from="." to="Sprite2D" method="_on_player_on_velocity"]
+[connection signal="on_velocity" from="." to="Audio Events" method="_on_player_on_velocity"]
 [connection signal="on_jumps_updated" from="JumpingManager" to="." method="_on_jumping_manager_on_jumps_updated"]

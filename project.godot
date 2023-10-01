@@ -21,6 +21,7 @@ RuntimeManager="*res://addons/FMOD/runtime/runtime_manager.gd"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="viewport"
 
 [dotnet]

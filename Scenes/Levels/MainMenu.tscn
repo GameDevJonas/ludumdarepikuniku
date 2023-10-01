@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://8lw88eyvijr0"]
+[gd_scene load_steps=7 format=3 uid="uid://8lw88eyvijr0"]
 
 [ext_resource type="PackedScene" uid="uid://c1gmjt8iuedxo" path="res://Scenes/UI/UI_MainMenuInterface.tscn" id="1_03jj8"]
 [ext_resource type="Script" path="res://Scenes/Levels/Scripts/MainMenu.gd" id="1_uutfp"]
 [ext_resource type="PackedScene" uid="uid://byydfhpoexq4e" path="res://Scenes/TestingScene.tscn" id="2_88l03"]
 [ext_resource type="PackedScene" uid="uid://ccw083mj3r54j" path="res://Scenes/_MNGR_SceneManager.tscn" id="2_mo4qo"]
+[ext_resource type="BankAsset" uid="uid://dyb6j0pf4xoq3" path="res://addons/FMOD/editor/resources/banks/{387d56c1-0b62-4396-a031-a5d989f024bd}.tres" id="5_2rdeo"]
+[ext_resource type="BankAsset" uid="uid://hlbgj5tn2pdo" path="res://addons/FMOD/editor/resources/banks/{a0607615-7a19-0fd4-2678-2f2778032225}.tres" id="6_hnjju"]
 
 [node name="MainMenuNode" type="Node"]
 script = ExtResource("1_uutfp")
@@ -12,6 +14,12 @@ first_level_scene = ExtResource("2_88l03")
 [node name="MainMenuInterface" parent="." instance=ExtResource("1_03jj8")]
 
 [node name="SceneManager" parent="." instance=ExtResource("2_mo4qo")]
+
+[node name="StudioBankLoader" type="StudioBankLoader" parent="."]
+load_on = 1
+num_banks = 2
+bank_0 = ExtResource("5_2rdeo")
+bank_1 = ExtResource("6_hnjju")
 
 [connection signal="quit_game_signal" from="MainMenuInterface" to="." method="_on_main_menu_interface_quit_game_signal"]
 [connection signal="start_game_signal" from="MainMenuInterface" to="." method="_on_main_menu_interface_start_game_signal"]
