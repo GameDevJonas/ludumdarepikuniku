@@ -1,16 +1,76 @@
-[gd_resource type="ProjectCache" load_steps=12 format=3 uid="uid://d1j4vhcycthm3"]
+[gd_resource type="ProjectCache" load_steps=15 format=3 uid="uid://d1j4vhcycthm3"]
 
 [ext_resource type="BankAsset" uid="uid://dyb6j0pf4xoq3" path="res://addons/FMOD/editor/resources/banks/{387d56c1-0b62-4396-a031-a5d989f024bd}.tres" id="1_ldcfb"]
 [ext_resource type="BankAsset" uid="uid://hlbgj5tn2pdo" path="res://addons/FMOD/editor/resources/banks/{a0607615-7a19-0fd4-2678-2f2778032225}.tres" id="2_iyq47"]
 [ext_resource type="BusAsset" uid="uid://s2rwxtnufjd4" path="res://addons/FMOD/editor/resources/busses/{3547dbe2-a4f1-45c7-81d5-21636e8a263e}.tres" id="3_mlmea"]
 [ext_resource type="BusAsset" uid="uid://bk1yevgp6vsld" path="res://addons/FMOD/editor/resources/busses/{01280c43-97b6-4282-8270-ecb35ae2bd48}.tres" id="4_2cjcx"]
-[ext_resource type="EventAsset" uid="uid://ihmrt3i6voft" path="res://addons/FMOD/editor/resources/events/{e1c8ba8d-7a33-4185-bffb-4875be40f9e5}.tres" id="5_r2s8g"]
 [ext_resource type="EventAsset" uid="uid://cc03h2euwp880" path="res://addons/FMOD/editor/resources/events/{9602bffc-d20f-4fa5-a91d-61e4b6d1ca8c}.tres" id="5_x4a8t"]
-[ext_resource type="EventAsset" uid="uid://csxp86inhd7hc" path="res://addons/FMOD/editor/resources/events/{51835cb1-00dd-4fe8-a201-2636ae5a3dfd}.tres" id="6_lsxce"]
-[ext_resource type="EventAsset" uid="uid://cqi4uavhletus" path="res://addons/FMOD/editor/resources/events/{aaa480ac-b298-45f6-835a-2309659c1ab8}.tres" id="7_2y5wr"]
-[ext_resource type="EventAsset" uid="uid://cr7a1fc400oug" path="res://addons/FMOD/editor/resources/events/{0047cdcf-44af-4aef-817a-95de98d941cb}.tres" id="8_a2pf1"]
-[ext_resource type="EventAsset" uid="uid://buljfs2h1tsy7" path="res://addons/FMOD/editor/resources/events/{6802443c-3dea-40f1-a0ff-b17a3cf64c7e}.tres" id="10_iqep2"]
-[ext_resource type="EventAsset" uid="uid://fxmqgohtj1kj" path="res://addons/FMOD/editor/resources/events/{5061197a-7c1c-4483-aa53-bc7dc19907a8}.tres" id="11_w6444"]
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_caltj"]
+data1 = 1803211166
+data2 = 2867646944
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_65jgp"]
+name = "Footstep_Level"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_caltj")
+maximum = 1.0
+guid = "{856eeaf3-55aa-44b3-8d7a-019c446a6fe2}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_4jnfb"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_65jgp")
+path = "parameter:/Footstep_Level"
+guid = "{856eeaf3-55aa-44b3-8d7a-019c446a6fe2}"
+name = "Footstep_Level"
+
+[sub_resource type="EventAsset" id="EventAsset_sh15l"]
+min_distance = 1.0
+max_distance = 20.0
+parameters = {
+"{856eeaf3-55aa-44b3-8d7a-019c446a6fe2}": SubResource("ParameterAsset_4jnfb")
+}
+path = "event:/player/player_footsteps"
+guid = "{e1c8ba8d-7a33-4185-bffb-4875be40f9e5}"
+name = "player_footsteps"
+
+[sub_resource type="EventAsset" id="EventAsset_uxn6k"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/player/player_jump"
+guid = "{51835cb1-00dd-4fe8-a201-2636ae5a3dfd}"
+name = "player_jump"
+
+[sub_resource type="EventAsset" id="EventAsset_v3sdt"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/player/player_land"
+guid = "{aaa480ac-b298-45f6-835a-2309659c1ab8}"
+name = "player_land"
+
+[sub_resource type="EventAsset" id="EventAsset_17r1b"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/player/player_no_jump"
+guid = "{0047cdcf-44af-4aef-817a-95de98d941cb}"
+name = "player_no_jump"
+
+[sub_resource type="EventAsset" id="EventAsset_vaah4"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/ui/ui_click"
+guid = "{6802443c-3dea-40f1-a0ff-b17a3cf64c7e}"
+name = "ui_click"
+
+[sub_resource type="EventAsset" id="EventAsset_gea8g"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/ui/ui_hover"
+guid = "{5061197a-7c1c-4483-aa53-bc7dc19907a8}"
+name = "ui_hover"
 
 [resource]
 banks = {
@@ -18,13 +78,13 @@ banks = {
 "{a0607615-7a19-0fd4-2678-2f2778032225}": ExtResource("2_iyq47")
 }
 events = {
-"{0047cdcf-44af-4aef-817a-95de98d941cb}": ExtResource("8_a2pf1"),
-"{5061197a-7c1c-4483-aa53-bc7dc19907a8}": ExtResource("11_w6444"),
-"{51835cb1-00dd-4fe8-a201-2636ae5a3dfd}": ExtResource("6_lsxce"),
-"{6802443c-3dea-40f1-a0ff-b17a3cf64c7e}": ExtResource("10_iqep2"),
+"{0047cdcf-44af-4aef-817a-95de98d941cb}": SubResource("EventAsset_17r1b"),
+"{5061197a-7c1c-4483-aa53-bc7dc19907a8}": SubResource("EventAsset_gea8g"),
+"{51835cb1-00dd-4fe8-a201-2636ae5a3dfd}": SubResource("EventAsset_uxn6k"),
+"{6802443c-3dea-40f1-a0ff-b17a3cf64c7e}": SubResource("EventAsset_vaah4"),
 "{9602bffc-d20f-4fa5-a91d-61e4b6d1ca8c}": ExtResource("5_x4a8t"),
-"{aaa480ac-b298-45f6-835a-2309659c1ab8}": ExtResource("7_2y5wr"),
-"{e1c8ba8d-7a33-4185-bffb-4875be40f9e5}": ExtResource("5_r2s8g")
+"{aaa480ac-b298-45f6-835a-2309659c1ab8}": SubResource("EventAsset_v3sdt"),
+"{e1c8ba8d-7a33-4185-bffb-4875be40f9e5}": SubResource("EventAsset_sh15l")
 }
 busses = {
 "{01280c43-97b6-4282-8270-ecb35ae2bd48}": ExtResource("4_2cjcx"),
@@ -49,25 +109,25 @@ event_tree = [{
 "item_type": 1,
 "node_name": "player_footsteps",
 "path": "event:/player/player_footsteps",
-"resource": ExtResource("5_r2s8g")
+"resource": SubResource("EventAsset_sh15l")
 }, {
 "children": [],
 "item_type": 1,
 "node_name": "player_jump",
 "path": "event:/player/player_jump",
-"resource": ExtResource("6_lsxce")
+"resource": SubResource("EventAsset_uxn6k")
 }, {
 "children": [],
 "item_type": 1,
 "node_name": "player_land",
 "path": "event:/player/player_land",
-"resource": ExtResource("7_2y5wr")
+"resource": SubResource("EventAsset_v3sdt")
 }, {
 "children": [],
 "item_type": 1,
 "node_name": "player_no_jump",
 "path": "event:/player/player_no_jump",
-"resource": ExtResource("8_a2pf1")
+"resource": SubResource("EventAsset_17r1b")
 }],
 "item_type": 7,
 "node_name": "player",
@@ -85,13 +145,13 @@ event_tree = [{
 "item_type": 1,
 "node_name": "ui_click",
 "path": "event:/ui/ui_click",
-"resource": ExtResource("10_iqep2")
+"resource": SubResource("EventAsset_vaah4")
 }, {
 "children": [],
 "item_type": 1,
 "node_name": "ui_hover",
 "path": "event:/ui/ui_hover",
-"resource": ExtResource("11_w6444")
+"resource": SubResource("EventAsset_gea8g")
 }],
 "item_type": 7,
 "node_name": "ui",
