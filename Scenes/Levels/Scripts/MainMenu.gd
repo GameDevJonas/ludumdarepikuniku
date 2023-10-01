@@ -2,7 +2,7 @@ extends Node
 
 @onready var scene_manager = $SceneManager
 
-@export var first_level_scene : PackedScene
+@export var first_level_scene : String
 
 func _on_main_menu_interface_quit_game_signal():
 	scene_manager.quit_game()

@@ -192,7 +192,7 @@ shape = SubResource("CapsuleShape2D_6j1ce")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -219)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_0kd28")
+texture = ExtResource("6_4jeov")
 script = ExtResource("4_o5r75")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]

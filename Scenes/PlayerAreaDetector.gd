@@ -12,7 +12,7 @@ var scene_manager
 signal player_jumped_in_area
 
 func _ready():
-	scene_manager = get_parent().get_node("LevelArea/CanvasLayer/SceneManager")
+	scene_manager = get_parent().get_node("CoreGameStuff/SceneManagerCanvasLayer/SceneManager")
 
 #func _process(delta):
 #	print(has_overlapping_bodies())
