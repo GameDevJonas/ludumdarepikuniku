@@ -6,7 +6,7 @@ var trigger_when_grounded : bool = false
 
 # variables
 @export var speed: float
-@export var jump_velocity: float
+@export var jump_velocity: float = -800
 
 signal on_jumps_updated(amount)
 signal on_jump
@@ -18,7 +18,7 @@ signal on_landed
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	jumping_manager = get_node("JumpingManager")
+	jumping_manager = get_parent()
 
 func _process(delta):
 	if(trigger_when_grounded and is_on_floor()):
@@ -52,9 +52,10 @@ func _physics_process(delta):
 func get_jump() -> bool:
 	return jumping_manager.on_jump()
 
-func _on_jumping_manager_on_jumps_updated(amount):
-	on_jumps_updated.emit(amount)
-
 func trigger_grounded():
 	trigger_when_grounded = false
 	on_landed.emit()
+
+
+func _on_jumps_updated(amount):
+	on_jumps_updated.emit(amount)

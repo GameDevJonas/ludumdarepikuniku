@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://d3c111qlkqj2n"]
+[gd_scene load_steps=27 format=3 uid="uid://d3c111qlkqj2n"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Scripts/Player.gd" id="1_a36bl"]
 [ext_resource type="Texture2D" uid="uid://ot7h4ksad7qm" path="res://Textures/Player/limitedspace_dude3.png" id="3_0kd28"]
-[ext_resource type="Script" path="res://Scenes/Player/Scripts/JumpingManager.gd" id="3_5kn0h"]
 [ext_resource type="Script" path="res://Scenes/Player/PlayerAnimation.gd" id="4_o5r75"]
 [ext_resource type="Texture2D" uid="uid://do4y2imfejdb5" path="res://Textures/Player/limitedspace_dude_jump.png" id="5_ugq2d"]
 [ext_resource type="Texture2D" uid="uid://ct03djgbsjrfg" path="res://Textures/Player/limitedspace_dude_crouch.png" id="6_4jeov"]
@@ -181,7 +180,6 @@ graph_offset = Vector2(-9, 35)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_a36bl")
 speed = 600.0
-jump_velocity = -800.0
 
 [node name="StudioListener2D" type="StudioListener2D" parent="." node_paths=PackedStringArray("attenuation_object", "rigidbody")]
 attenuation_object = NodePath("..")
@@ -190,11 +188,6 @@ rigidbody = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -218)
 shape = SubResource("CapsuleShape2D_6j1ce")
-
-[node name="JumpingManager" type="Node" parent="."]
-script = ExtResource("3_5kn0h")
-starting_jumps = 1
-current_jumps = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -219)
@@ -226,4 +219,3 @@ fail_jump_event = ExtResource("12_q1g23")
 [connection signal="on_landed" from="." to="Audio Events" method="_on_player_on_landed"]
 [connection signal="on_velocity" from="." to="Sprite2D" method="_on_player_on_velocity"]
 [connection signal="on_velocity" from="." to="Audio Events" method="_on_player_on_velocity"]
-[connection signal="on_jumps_updated" from="JumpingManager" to="." method="_on_jumping_manager_on_jumps_updated"]

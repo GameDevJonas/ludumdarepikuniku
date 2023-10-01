@@ -1,7 +1,7 @@
 extends Node
 
 @export var starting_jumps: int
-@export var current_jumps: int
+var current_jumps: int
 
 signal on_jumps_updated(amount)
 

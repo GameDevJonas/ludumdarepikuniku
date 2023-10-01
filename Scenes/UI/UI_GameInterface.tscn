@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckdqww4fx2ser"]
+[gd_scene load_steps=6 format=3 uid="uid://ckdqww4fx2ser"]
 
 [ext_resource type="PackedScene" uid="uid://bxh8nm8333yig" path="res://Scenes/UI/UI_Jumping.tscn" id="1_helvr"]
 [ext_resource type="Script" path="res://Scenes/UI/UI_GameInterface.gd" id="1_y4drx"]
+[ext_resource type="Script" path="res://Scenes/UI/ButtonBehaviour.gd" id="3_sfv2d"]
+[ext_resource type="EventAsset" uid="uid://buljfs2h1tsy7" path="res://addons/FMOD/editor/resources/events/{6802443c-3dea-40f1-a0ff-b17a3cf64c7e}.tres" id="4_ugmnb"]
+[ext_resource type="EventAsset" uid="uid://fxmqgohtj1kj" path="res://addons/FMOD/editor/resources/events/{5061197a-7c1c-4483-aa53-bc7dc19907a8}.tres" id="5_xakvp"]
 
 [node name="GameInterface" type="Control"]
 layout_mode = 3
@@ -15,3 +18,28 @@ metadata/_edit_use_anchors_ = true
 
 [node name="JumpingUI" parent="." instance=ExtResource("1_helvr")]
 layout_mode = 1
+
+[node name="ResetButton" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Button" type="Button" parent="ResetButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = 17.0
+offset_right = -18.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reset Level"
+script = ExtResource("3_sfv2d")
+on_click_event = ExtResource("4_ugmnb")
+on_hover_event = ExtResource("5_xakvp")

@@ -2,6 +2,8 @@ extends Area2D
 
 @export var node_to_toggle : CanvasItem
 
+@export var star_animator : AnimationPlayer
+
 var scene_manager
 
 signal player_jumped_in_area
@@ -20,5 +22,6 @@ func _on_body_exited(body):
 
 func on_jumped_in_area():
 	player_jumped_in_area.emit()
+	star_animator.play("Spin")
 	if(node_to_toggle != null):
 		node_to_toggle.visible = !node_to_toggle.visible

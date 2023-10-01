@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuwygwh83lpru"]
+[gd_scene load_steps=6 format=3 uid="uid://cuwygwh83lpru"]
 
 [ext_resource type="PackedScene" uid="uid://ckdqww4fx2ser" path="res://Scenes/UI/UI_GameInterface.tscn" id="1_wdt5m"]
+[ext_resource type="Script" path="res://Scenes/Player/Scripts/JumpingManager.gd" id="1_xfdxh"]
 [ext_resource type="PackedScene" uid="uid://d3c111qlkqj2n" path="res://Scenes/Player/Player.tscn" id="2_cukvs"]
 [ext_resource type="BankAsset" uid="uid://dyb6j0pf4xoq3" path="res://addons/FMOD/editor/resources/banks/{387d56c1-0b62-4396-a031-a5d989f024bd}.tres" id="3_erpiy"]
 [ext_resource type="BankAsset" uid="uid://hlbgj5tn2pdo" path="res://addons/FMOD/editor/resources/banks/{a0607615-7a19-0fd4-2678-2f2778032225}.tres" id="4_5o8me"]
 
 [node name="CoreGameStuff" type="Node2D"]
+script = ExtResource("1_xfdxh")
+starting_jumps = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -20,4 +23,5 @@ num_banks = 2
 bank_0 = ExtResource("3_erpiy")
 bank_1 = ExtResource("4_5o8me")
 
+[connection signal="on_jumps_updated" from="." to="Player" method="_on_jumps_updated"]
 [connection signal="on_jumps_updated" from="Player" to="CanvasLayer/GameInterface" method="_on_player_on_jumps_updated"]
