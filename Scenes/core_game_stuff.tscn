@@ -11,14 +11,14 @@
 script = ExtResource("1_xfdxh")
 starting_jumps = 1
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="InterfaceCanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SceneManager" parent="CanvasLayer2" instance=ExtResource("2_m6e8v")]
+[node name="GameInterface" parent="InterfaceCanvasLayer" node_paths=PackedStringArray("scene_manager") instance=ExtResource("1_wdt5m")]
+scene_manager = NodePath("../../SceneManagerCanvasLayer/SceneManager")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="SceneManagerCanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GameInterface" parent="CanvasLayer" node_paths=PackedStringArray("scene_manager") instance=ExtResource("1_wdt5m")]
-scene_manager = NodePath("../../CanvasLayer2/SceneManager")
+[node name="SceneManager" parent="SceneManagerCanvasLayer" instance=ExtResource("2_m6e8v")]
 
 [node name="Player" parent="." instance=ExtResource("2_cukvs")]
 
@@ -29,4 +29,4 @@ bank_0 = ExtResource("3_erpiy")
 bank_1 = ExtResource("4_5o8me")
 
 [connection signal="on_jumps_updated" from="." to="Player" method="_on_jumps_updated"]
-[connection signal="on_jumps_updated" from="Player" to="CanvasLayer/GameInterface" method="_on_player_on_jumps_updated"]
+[connection signal="on_jumps_updated" from="Player" to="InterfaceCanvasLayer/GameInterface" method="_on_player_on_jumps_updated"]
