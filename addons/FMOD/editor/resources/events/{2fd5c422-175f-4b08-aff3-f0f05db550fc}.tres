@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://dtvuiypndcndf"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/env/env_starspin"
+guid = "{2fd5c422-175f-4b08-aff3-f0f05db550fc}"
+name = "env_starspin"

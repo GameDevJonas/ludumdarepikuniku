@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://bmrw6760yvd18"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/env/env_pickuphat"
+guid = "{126ddf4a-562a-4343-8407-c5bb4ac7e2a6}"
+name = "env_pickuphat"

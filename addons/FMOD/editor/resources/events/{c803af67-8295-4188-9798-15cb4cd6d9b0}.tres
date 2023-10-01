@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://csau0c8axfs4a"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/env/env_dooropen"
+guid = "{c803af67-8295-4188-9798-15cb4cd6d9b0}"
+name = "env_dooropen"

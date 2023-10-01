@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://cqa15mr6xqkmc"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/ui/ui_levelstart"
+guid = "{34563d5d-8f21-45f5-86a6-926c5593a219}"
+name = "ui_levelstart"

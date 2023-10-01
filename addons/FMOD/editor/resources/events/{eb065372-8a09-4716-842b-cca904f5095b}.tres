@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://cnvh2tkg7tgy"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/ui/ui_levelend"
+guid = "{eb065372-8a09-4716-842b-cca904f5095b}"
+name = "ui_levelend"

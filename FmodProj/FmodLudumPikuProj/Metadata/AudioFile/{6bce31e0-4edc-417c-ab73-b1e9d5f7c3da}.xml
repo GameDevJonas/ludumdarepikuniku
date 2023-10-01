@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6bce31e0-4edc-417c-ab73-b1e9d5f7c3da}">
+		<property name="assetPath">
+			<value>env_star_spin.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.2207029478458049</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e533e1b4-f9b8-437d-87cb-33d2d38ba4e5}</destination>
+		</relationship>
+	</object>
+</objects>
