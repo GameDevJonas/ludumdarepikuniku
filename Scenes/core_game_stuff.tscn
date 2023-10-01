@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuwygwh83lpru"]
+
+[ext_resource type="PackedScene" uid="uid://ckdqww4fx2ser" path="res://Scenes/UI/UI_GameInterface.tscn" id="1_wdt5m"]
+[ext_resource type="PackedScene" uid="uid://d3c111qlkqj2n" path="res://Scenes/Player/Player.tscn" id="2_cukvs"]
+
+[node name="CoreGameStuff" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameInterface" parent="CanvasLayer" instance=ExtResource("1_wdt5m")]
+
+[node name="Player" parent="." instance=ExtResource("2_cukvs")]
+position = Vector2(0, -30)
+
+[connection signal="on_jumps_updated" from="Player" to="CanvasLayer/GameInterface" method="_on_player_on_jumps_updated"]

@@ -4,7 +4,6 @@ extends Node
 
 @export var first_level_scene : PackedScene
 
-
 func _on_main_menu_interface_quit_game_signal():
 	scene_manager.quit_game()
 

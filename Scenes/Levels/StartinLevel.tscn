@@ -1,55 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cglq2rvl32y4d"]
+[gd_scene load_steps=4 format=3 uid="uid://cglq2rvl32y4d"]
 
-[ext_resource type="PackedScene" uid="uid://cogy0i2rpxsxr" path="res://Scenes/Entities/GroundPiece.tscn" id="1_0c6v5"]
-[ext_resource type="PackedScene" uid="uid://cpn5n4d4t2v7y" path="res://Scenes/GameCores.tscn" id="2_lbh8s"]
+[ext_resource type="TileSet" uid="uid://6rks53kotupd" path="res://Textures/Tiles/DefaultTiles.tres" id="1_okpqg"]
+[ext_resource type="PackedScene" uid="uid://ckdqww4fx2ser" path="res://Scenes/UI/UI_GameInterface.tscn" id="2_l0hb5"]
+[ext_resource type="PackedScene" uid="uid://d3c111qlkqj2n" path="res://Scenes/Player/Player.tscn" id="2_uiubc"]
 
 [node name="StartinLevel" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+follow_viewport_enabled = true
+
+[node name="GameInterface" parent="CanvasLayer" instance=ExtResource("2_l0hb5")]
+
 [node name="LevelArea" type="Node" parent="."]
 
-[node name="GroundPiece" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(0, 24)
+[node name="TileMap" type="TileMap" parent="LevelArea"]
+tile_set = ExtResource("1_okpqg")
+format = 2
+layer_0/tile_data = PackedInt32Array(65533, 0, 0, 65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 131072, 0, 131069, 0, 1, 196605, 0, 1, 262141, 0, 1, 65538, 131072, 1, 131074, 131072, 1, 196610, 131072, 1, 262146, 131072, 2, 327677, 0, 2, 327678, 65536, 2, 327679, 65536, 2, 262144, 65536, 2, 262145, 65536, 2, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 65537, 65536, 1, 131073, 65536, 1, 196609, 65536, 1)
 
-[node name="GroundPiece2" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(21, 24)
+[node name="Player" parent="." instance=ExtResource("2_uiubc")]
 
-[node name="GroundPiece3" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(-22, 24)
-
-[node name="GroundPiece4" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(-66, 24)
-
-[node name="GroundPiece5" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(-45, 24)
-
-[node name="GroundPiece6" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(-88, 24)
-
-[node name="GroundPiece7" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(67, 24)
-
-[node name="GroundPiece8" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(88, 24)
-
-[node name="GroundPiece9" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(45, 24)
-
-[node name="GroundPiece10" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(-132, 24)
-
-[node name="GroundPiece11" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(-111, 24)
-
-[node name="GroundPiece12" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(-154, 24)
-
-[node name="GroundPiece13" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(135, 25)
-
-[node name="GroundPiece14" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(156, 25)
-
-[node name="GroundPiece15" parent="LevelArea" instance=ExtResource("1_0c6v5")]
-position = Vector2(113, 25)
-
-[node name="GameCores" parent="." instance=ExtResource("2_lbh8s")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-7, -559)

@@ -17,3 +17,7 @@ func quit_game():
 	scene_transition.transition_fade_in()
 	await(scene_transition.transition_complete)
 	get_tree().quit()
+
+
+func _on_area_2d_body_entered(body):
+	pass # Replace with function body.

@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://c1gmjt8iuedxo" path="res://Scenes/UI/UI_MainMenuInterface.tscn" id="1_03jj8"]
 [ext_resource type="Script" path="res://Scenes/Levels/Scripts/MainMenu.gd" id="1_uutfp"]
-[ext_resource type="PackedScene" uid="uid://cglq2rvl32y4d" path="res://Scenes/Levels/StartinLevel.tscn" id="2_c1ecx"]
-[ext_resource type="PackedScene" uid="uid://ccw083mj3r54j" path="res://Scenes/Levels/_MNGR_SceneManager.tscn" id="2_mo4qo"]
+[ext_resource type="PackedScene" uid="uid://byydfhpoexq4e" path="res://Scenes/TestingScene.tscn" id="2_88l03"]
+[ext_resource type="PackedScene" uid="uid://ccw083mj3r54j" path="res://Scenes/_MNGR_SceneManager.tscn" id="2_mo4qo"]
 
 [node name="MainMenuNode" type="Node"]
 script = ExtResource("1_uutfp")
-first_level_scene = ExtResource("2_c1ecx")
+first_level_scene = ExtResource("2_88l03")
 
 [node name="MainMenuInterface" parent="." instance=ExtResource("1_03jj8")]
 

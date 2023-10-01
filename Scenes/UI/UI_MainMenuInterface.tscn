@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1gmjt8iuedxo"]
+[gd_scene load_steps=4 format=3 uid="uid://c1gmjt8iuedxo"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Scripts/MainMenuInterface.gd" id="1_xjolp"]
+[ext_resource type="Texture2D" uid="uid://du70r18vdxqtm" path="res://Textures/Background/limitedspace_tiledbackground_stripe2.png" id="2_6cqgd"]
 [ext_resource type="Theme" uid="uid://hvlxmfmllwep" path="res://Themes/Title_theme.tres" id="2_gmm2c"]
 
 [node name="MainMenuInterface" type="Control"]
@@ -11,6 +12,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xjolp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -420.5
+offset_right = 0.5
+offset_bottom = 420.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6cqgd")
 
 [node name="TitleContainer" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -28,6 +42,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("2_gmm2c")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[center]Limited Space[/center]"
 fit_content = true

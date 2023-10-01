@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://byydfhpoexq4e"]
+
+[ext_resource type="PackedScene" uid="uid://cuwygwh83lpru" path="res://Scenes/core_game_stuff.tscn" id="2_gcrkx"]
+[ext_resource type="TileSet" uid="uid://6rks53kotupd" path="res://Textures/Tiles/DefaultTiles.tres" id="3_6spr6"]
+[ext_resource type="Texture2D" uid="uid://ctaygicvyn6qe" path="res://Textures/Background/limitedspace_tiledbackground_stripe1.png" id="3_qgx15"]
+[ext_resource type="PackedScene" uid="uid://ccw083mj3r54j" path="res://Scenes/_MNGR_SceneManager.tscn" id="4_py8s7"]
+[ext_resource type="Script" path="res://Scenes/PlayerAreaDetector.gd" id="5_06ymv"]
+[ext_resource type="Texture2D" uid="uid://bc0n0kstccjph" path="res://Textures/Misc/limitedspace_sparkle2.png" id="6_h3q1h"]
+[ext_resource type="Texture2D" uid="uid://dx26f44thapns" path="res://Textures/Misc/limitedspace_star2.png" id="7_17n00"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a2o1"]
+size = Vector2(336, 454)
+
+[node name="TestingScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(65, -253)
+zoom = Vector2(0.4, 0.4)
+
+[node name="LevelArea" type="Node2D" parent="."]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="LevelArea"]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="LevelArea/BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qgx15")
+
+[node name="TileMap" type="TileMap" parent="LevelArea"]
+tile_set = ExtResource("3_6spr6")
+format = 2
+layer_0/tile_data = PackedInt32Array(65533, 65537, 0, 65534, 65537, 0, 65535, 65537, 0, 0, 65537, 0, 1, 65537, 0, 2, 65537, 0, 3, 65537, 0, 4, 65537, 0, 5, 65537, 0, 6, 65537, 0, 7, 65537, 0, 8, 65537, 0, 9, 65537, 0, 10, 65537, 0, 11, 65537, 0, 65532, 65537, 0, 65531, 65537, 0, 65530, 65537, 0, 65529, 65537, 0, 65528, 65537, 0, 65527, 65537, 0, 65523, 1, 0, 13, 131073, 0, 65524, 65537, 0, 65525, 65537, 0, 65526, 65537, 0, 12, 65537, 0, 131060, 65537, 1, 196596, 65537, 1, 131061, 65537, 1, 196597, 65537, 1, 131062, 65537, 1, 196598, 65537, 1, 131063, 65537, 1, 196599, 65537, 1, 131064, 65537, 1, 196600, 65537, 1, 131065, 65537, 1, 196601, 65537, 1, 131066, 65537, 1, 196602, 65537, 1, 131067, 65537, 1, 196603, 65537, 1, 131068, 65537, 1, 196604, 65537, 1, 131069, 65537, 1, 196605, 65537, 1, 131070, 65537, 1, 196606, 65537, 1, 131071, 65537, 1, 196607, 65537, 1, 65536, 65537, 1, 131072, 65537, 1, 65537, 65537, 1, 131073, 65537, 1, 65538, 65537, 1, 131074, 65537, 1, 65539, 65537, 1, 131075, 65537, 1, 65540, 65537, 1, 131076, 65537, 1, 65541, 65537, 1, 131077, 65537, 1, 65542, 65537, 1, 131078, 65537, 1, 65543, 65537, 1, 131079, 65537, 1, 65544, 65537, 1, 131080, 65537, 1, 65545, 65537, 1, 131081, 65537, 1, 65546, 65537, 1, 131082, 65537, 1, 65547, 65537, 1, 131083, 65537, 1, 65548, 65537, 1, 131084, 65537, 1, 65549, 131073, 1, 131085, 131073, 1, 131059, 1, 1, 196595, 1, 1, 262131, 1, 2, 196621, 131073, 2, 262132, 65537, 2, 262133, 65537, 2, 262134, 65537, 2, 262135, 65537, 2, 262136, 65537, 2, 262137, 65537, 2, 262138, 65537, 2, 262139, 65537, 2, 262140, 65537, 2, 262141, 65537, 2, 262142, 65537, 2, 262143, 65537, 2, 196608, 65537, 2, 196609, 65537, 2, 196610, 65537, 2, 196611, 65537, 2, 196612, 65537, 2, 196613, 65537, 2, 196614, 65537, 2, 196615, 65537, 2, 196616, 65537, 2, 196617, 65537, 2, 196618, 65537, 2, 196619, 65537, 2, 196620, 65537, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="LevelArea"]
+
+[node name="SceneManager" parent="LevelArea/CanvasLayer" instance=ExtResource("4_py8s7")]
+
+[node name="CoreGameStuff" parent="." instance=ExtResource("2_gcrkx")]
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("node_to_toggle")]
+position = Vector2(1075, -449)
+priority = 1
+script = ExtResource("5_06ymv")
+node_to_toggle = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(158, 217)
+shape = SubResource("RectangleShape2D_7a2o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+visible = false
+position = Vector2(169, -139)
+rotation = 1.23006
+scale = Vector2(0.640001, 0.640001)
+texture = ExtResource("6_h3q1h")
+
+[node name="PressurePadVisual" type="Sprite2D" parent="Area2D"]
+position = Vector2(166, 475)
+scale = Vector2(0.639999, 0.639999)
+texture = ExtResource("7_17n00")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

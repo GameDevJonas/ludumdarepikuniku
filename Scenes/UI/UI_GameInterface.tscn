@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckdqww4fx2ser"]
+
+[ext_resource type="PackedScene" uid="uid://bxh8nm8333yig" path="res://Scenes/UI/UI_Jumping.tscn" id="1_helvr"]
+[ext_resource type="Script" path="res://Scenes/UI/UI_GameInterface.gd" id="1_y4drx"]
+
+[node name="GameInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y4drx")
+metadata/_edit_use_anchors_ = true
+
+[node name="JumpingUI" parent="." instance=ExtResource("1_helvr")]
+layout_mode = 1

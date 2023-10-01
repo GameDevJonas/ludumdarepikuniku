@@ -3,11 +3,11 @@ extends CharacterBody2D
 var jumping_manager
 
 # variables
-@export var speed: float = 300.0
-@export var jump_velocity: float = -400.0
+@export var speed: float
+@export var jump_velocity: float
 
 signal on_jumps_updated(amount)
-
+signal on_jump
 signal on_velocity(velocity_value)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -24,6 +24,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("space") and is_on_floor() and get_jump():
 		velocity.y = jump_velocity
+		on_jump.emit()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
