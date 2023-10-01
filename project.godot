@@ -13,6 +13,7 @@ config_version=5
 config/name="pikunikuludum"
 run/main_scene="res://Scenes/Levels/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+boot_splash/image="res://splashskrin.png"
 config/icon="res://icon.svg"
 
 [autoload]
