@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://4o05dbmdfd5w"]
+
+[ext_resource type="Script" path="res://Scenes/PlayerAreaDetector.gd" id="1_yhxga"]
+[ext_resource type="Texture2D" uid="uid://bc0n0kstccjph" path="res://Textures/Misc/limitedspace_sparkle2.png" id="2_xxmkb"]
+[ext_resource type="Texture2D" uid="uid://dx26f44thapns" path="res://Textures/Misc/limitedspace_star2.png" id="3_c341u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a2o1"]
+size = Vector2(336, 454)
+
+[sub_resource type="Animation" id="Animation_on3k2"]
+resource_name = "Spin"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 14.829),
+"update": 0,
+"values": [-6.28319, 9.42478]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xqdm2"]
+_data = {
+"Spin": SubResource("Animation_on3k2")
+}
+
+[node name="JumpTrigger" type="Area2D"]
+position = Vector2(206, -449)
+priority = 1
+script = ExtResource("1_yhxga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(158, 217)
+shape = SubResource("RectangleShape2D_7a2o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(193, 301)
+rotation = 1.23006
+scale = Vector2(0.640001, 0.640001)
+texture = ExtResource("2_xxmkb")
+
+[node name="PressurePadVisual" type="Sprite2D" parent="."]
+position = Vector2(152, 443)
+rotation = -6.28319
+scale = Vector2(0.639999, 0.639999)
+texture = ExtResource("3_c341u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PressurePadVisual"]
+libraries = {
+"": SubResource("AnimationLibrary_xqdm2")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

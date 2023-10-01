@@ -13,6 +13,13 @@ func load_scene(next_scene: PackedScene):
 	scene_transition.transition_fade_out()
 	await(scene_transition.transition_complete)
 
+func reload_scene():
+	scene_transition.transition_fade_in()
+	await(scene_transition.transition_complete)
+	get_tree().reload_current_scene()
+	scene_transition.transition_fade_out()
+	await(scene_transition.transition_complete)
+
 func quit_game():
 	scene_transition.transition_fade_in()
 	await(scene_transition.transition_complete)

@@ -43,3 +43,5 @@ text = "Reset Level"
 script = ExtResource("3_sfv2d")
 on_click_event = ExtResource("4_ugmnb")
 on_hover_event = ExtResource("5_xakvp")
+
+[connection signal="pressed" from="ResetButton/Button" to="." method="reload_level"]

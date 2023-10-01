@@ -1,8 +1,11 @@
 extends Area2D
 
-@export var node_to_toggle : CanvasItem
+@export var animation_player : AnimationPlayer
+@export var animation_to_play : String
 
-@export var star_animator : AnimationPlayer
+@onready var node_to_toggle : Sprite2D = get_node("Sprite2D")
+
+@onready var star_animator : AnimationPlayer = get_node("PressurePadVisual/AnimationPlayer")
 
 var scene_manager
 
@@ -23,5 +26,7 @@ func _on_body_exited(body):
 func on_jumped_in_area():
 	player_jumped_in_area.emit()
 	star_animator.play("Spin")
-	if(node_to_toggle != null):
-		node_to_toggle.visible = !node_to_toggle.visible
+	node_to_toggle.visible = !node_to_toggle.visible
+	if(!animation_player):
+		return;
+	animation_player.play(animation_to_play)	
