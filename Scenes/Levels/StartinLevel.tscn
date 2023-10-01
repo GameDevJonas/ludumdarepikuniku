@@ -16,4 +16,40 @@ position = Vector2(21, 24)
 [node name="GroundPiece3" parent="LevelArea" instance=ExtResource("1_0c6v5")]
 position = Vector2(-22, 24)
 
+[node name="GroundPiece4" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(-66, 24)
+
+[node name="GroundPiece5" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(-45, 24)
+
+[node name="GroundPiece6" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(-88, 24)
+
+[node name="GroundPiece7" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(67, 24)
+
+[node name="GroundPiece8" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(88, 24)
+
+[node name="GroundPiece9" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(45, 24)
+
+[node name="GroundPiece10" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(-132, 24)
+
+[node name="GroundPiece11" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(-111, 24)
+
+[node name="GroundPiece12" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(-154, 24)
+
+[node name="GroundPiece13" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(135, 25)
+
+[node name="GroundPiece14" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(156, 25)
+
+[node name="GroundPiece15" parent="LevelArea" instance=ExtResource("1_0c6v5")]
+position = Vector2(113, 25)
+
 [node name="GameCores" parent="." instance=ExtResource("2_lbh8s")]
